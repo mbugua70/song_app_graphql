@@ -1,10 +1,14 @@
 import React from 'react';
+import "./style/style.css";
 import ReactDOM from 'react-dom/client';
 // import {ApolloClient} from "apollo-client";
 import {ApolloClient, InMemoryCache, gql, HttpLink, ApolloProvider} from '@apollo/client';
 
 
-import Songlist from '../components/Songlist';
+import RootRouter from './nestedcomponent/RootRouter';
+
+
+
 
 
 const client = new ApolloClient({
@@ -18,7 +22,7 @@ const client = new ApolloClient({
 const Root = () => {
   return (
     <ApolloProvider client={client}>
-      <Songlist/>
+      <RootRouter/>
     </ApolloProvider>
   )
 };

@@ -3,6 +3,7 @@ import React from "react";
 // graphql-tag it's a helper that help us to write queries inside a component file
 import gql from "graphql-tag";
 import {useQuery } from "@apollo/client";
+import { Link } from "react-router-dom";
 
 const Song_List = gql`
   {
@@ -30,7 +31,7 @@ function Songlist() {
    }
 
    if(!loading && !error){
-    content = data.songs.map((songItem) => <li className="collection-item" key={songItem.id}>{songItem.title}</li>)
+    content = data.songs.map((songItem) => <li  key={songItem.id}><Link to={`/${songItem.id}`} className="collection-item">{songItem.title}</Link></li>)
    }
 
    console.log(data)
@@ -42,6 +43,9 @@ function Songlist() {
        {content}
      </ul>
       </div>
+
+      <Link className="btn-floating btn-large waves-effect waves-light red"><i className="material-icons">add</i></Link>
+
     </div>
   )
 }
