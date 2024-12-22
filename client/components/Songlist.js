@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 const Song_List = gql`
   {
-    songs {
+      songs {
       id,
       title
     }
@@ -31,7 +31,7 @@ function Songlist() {
    }
 
    if(!loading && !error){
-    content = data.songs.map((songItem) => <li  key={songItem.id}><Link to={`/${songItem.id}`} className="collection-item">{songItem.title}</Link></li>)
+    content = data.songs.map((songItem) => <li key={songItem.id}><Link  className="collection-item" to={`songs/${songItem.id}`} >{songItem.title}</Link></li>)
    }
 
    console.log(data)
@@ -44,7 +44,7 @@ function Songlist() {
      </ul>
       </div>
 
-      <Link className="btn-floating btn-large waves-effect waves-light red"><i className="material-icons">add</i></Link>
+      <Link to="newsong" className="btn-floating btn-large waves-effect waves-light red"><i className="material-icons">add</i></Link>
 
     </div>
   )

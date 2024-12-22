@@ -9,6 +9,7 @@ function HeaderNavbar() {
       <a href="#" className="brand-logo">Logo</a>
       <ul id="nav-mobile" className="right hide-on-med-and-down">
         <li><NavLink to="/">SongList</NavLink></li>
+        {/* <li><NavLink to="/newsong">Add Song</NavLink></li> */}
       </ul>
     </div>
   </nav>

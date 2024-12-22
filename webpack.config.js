@@ -6,6 +6,9 @@ const path = require('path');
 module.exports = {
   entry: './client/index.js',
   mode: 'development',
+  devServer: {
+    historyApiFallback: true,
+  },
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js'
