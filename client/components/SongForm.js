@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import gql  from "graphql-tag";
 import {useMutation} from "@apollo/client"
 import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 
 
 // graphqlgql
@@ -14,9 +15,23 @@ const Mutation_Song = gql`
 `;
 
 
+// query for songList
+const Song_List = gql`
+  {
+      songs {
+      id,
+      title
+    }
+  }
+`;
+
+
 function SongForm() {
     const [title, setTitle] = useState("");
-    const [addSong, {loading, data, error}] = useMutation(Mutation_Song)
+    const navigate = useNavigate()
+    const [addSong, {loading, data, error}] = useMutation(Mutation_Song, {
+      refetchQueries: [{query: Song_List}]
+    })
 
     const handleTitleInput =(event)=>{
         setTitle(event.target.value)
@@ -34,6 +49,7 @@ function SongForm() {
         if (data && !loading) {
           toast.success("Your song was added successfully");
           setTitle("");
+
         }
         if (error) {
           toast.error("Error adding song");

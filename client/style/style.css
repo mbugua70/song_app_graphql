@@ -4,7 +4,27 @@
     right: 20px;
 }
 
-.collection-item a{
-    border-bottom: 2px solid gray !important;
+.collection .collection-item{
+  display: flex !important;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 
+}
+
+.material-icons {
+    cursor: pointer !important;
+    color: red;
+}
+
+.row, .card {
+    margin-top: 60px;
+}
+
+.song-detail{
+    padding-block: 2px;
+    padding-inline: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
